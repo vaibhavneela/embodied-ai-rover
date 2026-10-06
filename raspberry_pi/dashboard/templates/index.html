@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embodied AI Rover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+            background: #111;
+            color: white;
+        }
+
+        button {
+            width: 120px;
+            height: 60px;
+            margin: 8px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .controls {
+            max-width: 450px;
+            margin: auto;
+        }
+
+        #distance {
+            font-size: 24px;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🤖 Embodied AI Rover</h1>
+
+    <div id="distance">Distance: -- cm</div>
+
+    <div class="controls">
+        <div>
+            <button onclick="move('FORWARD')">↑ Forward</button>
+        </div>
+        <div>
+            <button onclick="move('LEFT')">← Left</button>
+            <button onclick="move('STOP')">■ Stop</button>
+            <button onclick="move('RIGHT')">→ Right</button>
+        </div>
+        <div>
+            <button onclick="move('BACKWARD')">↓ Backward</button>
+        </div>
+    </div>
+
+    <script>
+        function move(command) {
+            fetch('/move/' + command)
+                .catch(error => console.error(error));
+        }
+
+        async function updateDistance() {
+            try {
+                const response = await fetch('/distance');
+                const data = await response.json();
+
+                if (data.distance === null) {
+                    document.getElementById('distance').textContent =
+                        'Distance: -- cm';
+                } else {
+                    document.getElementById('distance').textContent =
+                        'Distance: ' + data.distance.toFixed(2) + ' cm';
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        setInterval(updateDistance, 200);
+        updateDistance();
+    </script>
+</body>
+</html>

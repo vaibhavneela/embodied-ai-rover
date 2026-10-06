@@ -1,0 +1,4 @@
+Flask
+pyserial
+opencv-python
+ultralytics
