@@ -1,4 +1,5 @@
 # 🤖 Embodied AI Rover
+> **Building a low-cost physical AI agent that can perceive, reason, and act in the real world.**
 
 <p align="center">
   <img src="docs/images/rover-front.jpg" width="650">
