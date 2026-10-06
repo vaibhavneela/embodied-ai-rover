@@ -208,6 +208,28 @@ The current version demonstrates the integration of the robot's hardware, commun
 
 The next stage is to move from individual working components toward a closed-loop autonomous system.
 
+## ⚙️ Current Capabilities
+
+## 🎥 Demo
+
+The current prototype demonstrates the complete pipeline from physical robot control to AI-based visual perception.
+
+### 🤖 Rover Prototype
+
+The physical rover integrates the ESP32, motor driver, ultrasonic sensor, Raspberry Pi, and camera into a single mobile platform.
+
+### 👁️ AI Vision
+
+The onboard camera provides the visual input used by the computer vision pipeline.
+
+YOLO detects objects from the live camera stream and provides the perception layer for future autonomous behaviors.
+
+### 🌐 Control & Monitoring
+
+A Flask dashboard provides a browser-based interface for controlling the rover and monitoring its camera and sensor data.
+
+> 🚧 **Next milestone:** Close the loop between perception and movement so the rover can autonomously track a selected object while avoiding obstacles.
+
 🗺️ Roadmap
 Phase 1 — Robotic Platform
  Build rover chassis
@@ -263,16 +285,3 @@ Interested in:
 📜 License
 
 This project is licensed under the MIT License.
-
-### Step 5B — Commit it
-
-After pasting:
-
-1. Scroll to the bottom.
-2. Click **`Commit changes...`**
-3. Keep the default message.
-4. Click **`Commit changes`**.
-
-Then open your repository's main page and look at the README.
-
-**Don't do anything else yet.** Tell me **“done”** once you've committed it.
